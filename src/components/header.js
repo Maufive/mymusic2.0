@@ -1,16 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Link } from 'gatsby';
 import { useSpring, config } from 'react-spring';
-import {
-  HeaderStyles, NavItem, Avatar, Nav,
-} from '../styles/HeaderStyles';
+import { HeaderStyles, Nav } from '../styles/HeaderStyles';
 import NavLink from './NavLink';
 import StarIcon from '../../assets/star.svg';
 import TunesIcon from '../../assets/tunes.svg';
 import ArtistIcon from '../../assets/users.svg';
 import AlbumIcon from '../../assets/disc.svg';
-import CameraIcon from '../../assets/camera.svg';
 
 const Header = ({ location }) => {
   const props = useSpring({
@@ -22,11 +18,8 @@ const Header = ({ location }) => {
 
   return (
     <HeaderStyles>
-      <Avatar>
-        <CameraIcon />
-      </Avatar>
       <Nav>
-        <NavLink location={location} to="/">
+        <NavLink location={location} to="/overview">
           <StarIcon />
 					Overview
 

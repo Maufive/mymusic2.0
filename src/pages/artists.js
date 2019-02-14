@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Layout from '../layout/index';
+import UserLayout from '../layout/User';
 import SEO from '../components/seo';
 import { PeriodNavigation } from '../components/PeriodNavigation';
 import { SongStyles, Songlist } from '../styles/SongsStyles';
@@ -56,32 +57,34 @@ class ArtistsPage extends Component {
 	render() {
 		const { artists } = this.state;
 		return (
-			<Layout location={this.props.location}>
+			<Layout>
 				<SEO title="Artists" keywords={['artists', ' annat', 'mer keywords']} />
-				<SongStyles>
-					<PeriodNavigation location={this.state.period} handleChange={this.handleChange} />
-					<div>
-						{artists && (
-							<Songlist>
-								{artists.map(artist => (
-									<li key={artist.name}>
-										<a href={artist.url} target="_blank" rel="noopener noreferrer">
-											<div>
-												<p>{artist.name}</p>
-												<span>
-													<PlayIcon /> {artist.playcount}
-												</span>
-											</div>
-										</a>
-									</li>
-								))}
-								<Button primary onClick={() => this.getArtists()}>
-									Show more
-								</Button>
-							</Songlist>
-						)}
-					</div>
-				</SongStyles>
+				<UserLayout location={this.props.location}>
+					<SongStyles>
+						<PeriodNavigation location={this.state.period} handleChange={this.handleChange} />
+						<div>
+							{artists && (
+								<Songlist>
+									{artists.map(artist => (
+										<li key={artist.name}>
+											<a href={artist.url} target="_blank" rel="noopener noreferrer">
+												<div>
+													<p>{artist.name}</p>
+													<span>
+														<PlayIcon /> {artist.playcount}
+													</span>
+												</div>
+											</a>
+										</li>
+									))}
+									<Button primary onClick={() => this.getArtists()}>
+										Show more
+									</Button>
+								</Songlist>
+							)}
+						</div>
+					</SongStyles>
+				</UserLayout>
 			</Layout>
 		);
 	}

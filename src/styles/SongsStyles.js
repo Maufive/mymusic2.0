@@ -11,7 +11,7 @@ const fadeIn = keyframes`
 `;
 
 export const SongStyles = styled.div`
-	/* border: 2px solid yellow; */
+	width: 100%;
 	padding: 0 5rem;
 	animation: ${fadeIn} 1000ms ease 1 normal forwards running;
 `;

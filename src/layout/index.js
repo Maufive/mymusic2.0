@@ -22,7 +22,7 @@ const StyledPage = styled.div`
 	color: ${props => props.theme.white};
 	min-height: 100vh;
 	width: 100%;
-	padding: 0rem 5rem;
+	padding: 0rem 5rem 10rem 5rem;
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -96,8 +96,7 @@ const Layout = ({ children, location }) => {
       <StyledPage>
         <GlobalStyle />
         <Jumbotron />
-        <div style={{ display: 'flex' }}>
-          <Header location={location} />
+        <div>
           <animated.div style={props}>
             <Center>{children}</Center>
           </animated.div>

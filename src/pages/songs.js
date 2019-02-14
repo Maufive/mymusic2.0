@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Layout from '../layout/index';
+import UserLayout from '../layout/User';
 import SEO from '../components/seo';
 import { PeriodNavigation } from '../components/PeriodNavigation';
 import { SongStyles, Songlist } from '../styles/SongsStyles';
@@ -56,34 +57,36 @@ class SongsPage extends Component {
 	render() {
 		const { songs } = this.state;
 		return (
-			<Layout location={this.props.location}>
+			<Layout>
 				<SEO title="Songs" keywords={['songs', 'nåt annat', 'mer keywords']} />
-				<SongStyles>
-					<PeriodNavigation location={this.state.period} handleChange={this.handleChange} />
-					<div>
-						{songs && (
-							<Songlist>
-								{songs.map(song => (
-									<li key={song.name}>
-										<a href={song.url} target="_blank" rel="noopener noreferrer">
-											<div>
-												<p>
-													{song.artist.name} - {song.name}
-												</p>
-												<span>
-													<PlayIcon /> {song.playcount}
-												</span>
-											</div>
-										</a>
-									</li>
-								))}
-								<Button primary onClick={() => this.getSongs()}>
-									Show more
-								</Button>
-							</Songlist>
-						)}
-					</div>
-				</SongStyles>
+				<UserLayout location={this.props.location}>
+					<SongStyles>
+						<PeriodNavigation location={this.state.period} handleChange={this.handleChange} />
+						<div>
+							{songs && (
+								<Songlist>
+									{songs.map(song => (
+										<li key={song.name}>
+											<a href={song.url} target="_blank" rel="noopener noreferrer">
+												<div>
+													<p>
+														{song.artist.name} - {song.name}
+													</p>
+													<span>
+														<PlayIcon /> {song.playcount}
+													</span>
+												</div>
+											</a>
+										</li>
+									))}
+									<Button primary onClick={() => this.getSongs()}>
+										Show more
+									</Button>
+								</Songlist>
+							)}
+						</div>
+					</SongStyles>
+				</UserLayout>
 			</Layout>
 		);
 	}
