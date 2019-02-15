@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Layout from '../layout/index';
 import UserLayout from '../layout/User';
 import SEO from '../components/seo';
-import Songs from '../components/Songs';
+import Songs from '../components/songs';
 
 const SongsPage = ({ location }) => (
   <Layout location={location}>
