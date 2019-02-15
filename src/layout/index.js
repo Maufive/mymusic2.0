@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { useSpring, animated } from 'react-spring';
-import Header from '../components/header';
 import Jumbotron from './Jumbotron';
 
 const theme = {
@@ -23,6 +22,10 @@ const StyledPage = styled.div`
 	min-height: 100vh;
 	width: 100%;
 	padding: 0rem 5rem 10rem 5rem;
+
+	@media (max-width: 1000px) {
+		padding: 2rem 1rem;
+	}
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -108,7 +111,11 @@ const Layout = ({ children, location }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object,
+};
+
+Layout.defaultProps = {
+  location: {},
 };
 
 export default Layout;

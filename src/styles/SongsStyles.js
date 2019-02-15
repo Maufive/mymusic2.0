@@ -14,6 +14,10 @@ export const SongStyles = styled.div`
 	width: 100%;
 	padding: 0 5rem;
 	animation: ${fadeIn} 1000ms ease 1 normal forwards running;
+
+	@media (max-width: 1000px) {
+		padding: 0;
+	}
 `;
 
 export const Songlist = styled.ol`

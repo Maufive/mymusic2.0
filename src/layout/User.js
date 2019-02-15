@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Header from '../components/header';
 
+const UserLayoutStyle = styled.div`
+	display: flex;
+
+	@media (max-width: 1000px) {
+		flex-direction: column;
+	}
+`;
+
 const UserLayout = ({ children, location }) => (
-  <div style={{ display: 'flex' }}>
-    <Header location={location} />
+  <UserLayoutStyle>
+    <Header location={location} user={location.state.user} />
     {children}
-  </div>
+  </UserLayoutStyle>
 );
 
 export default UserLayout;

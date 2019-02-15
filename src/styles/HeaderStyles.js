@@ -8,12 +8,21 @@ export const HeaderStyles = styled.header`
 	flex-direction: column;
 	align-items: center;
 	margin-right: 5rem;
+	@media (max-width: 1000px) {
+		margin-right: 0;
+	}
 `;
 
 export const Nav = styled.nav`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	@media (max-width: 1000px) {
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-bottom: 5rem;
+	}
 
 	> div {
 		transition: all 300ms ease-out;
@@ -23,6 +32,9 @@ export const Nav = styled.nav`
 		}
 		&:not(:last-child) {
 			margin-bottom: 5rem;
+			@media (max-width: 1000px) {
+				margin-bottom: 0;
+			}
 		}
 	}
 `;
@@ -42,6 +54,10 @@ export const NavItem = styled(animated.div)`
 
 	&:not(:last-child) {
 		margin-bottom: 5rem;
+	}
+
+	@media (max-width: 1000px) {
+		font-size: 1.5rem;
 	}
 `;
 

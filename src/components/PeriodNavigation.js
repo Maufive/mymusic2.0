@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navigation, NavItem } from '../styles/TimeFrameNav';
+import { Navigation, NavItem } from '../styles/PeriodNavigationNav';
 
 export const PeriodNavigation = ({ location, handleChange }) => (
   <Navigation>

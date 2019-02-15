@@ -27,13 +27,18 @@ export const Container = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	height: 100%;
 	margin-bottom: 5rem;
+
+	@media (max-width: 1000px) {
+		flex-direction: column;
+	}
 `;
 
 export const TopFiveBlock = styled.div`
 	min-width: 44.5%;
-	min-height: 250px;
+	@media (max-width: 1000px) {
+		width: 100%;
+	}
 
 	h2 {
 		text-align: center;
@@ -78,6 +83,10 @@ export const TopAlbumsContainer = styled.div`
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+
+	@media (max-width: 1000px) {
+		flex-wrap: wrap;
+	}
 `;
 
 export const AlbumContainer = styled.div`
@@ -87,6 +96,9 @@ export const AlbumContainer = styled.div`
 
 	> a {
 		transition: all 300ms ease-out;
+		@media (max-width: 1000px) {
+			margin-bottom: 3rem;
+		}
 		span {
 			margin-top: 1rem;
 			display: flex;
@@ -111,6 +123,11 @@ export const Album = styled.div`
 	width: 175px;
 	height: 175px;
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+
+	@media (max-width: 1000px) {
+		width: 150px;
+		height: 150px;
+	}
 `;
 
 export const Divider = styled.span`
@@ -125,4 +142,26 @@ export const Divider = styled.span`
 		rgba(255, 255, 255, 0) 100%
 	);
 	animation: ${fadeIn} 1000ms ease 1 normal forwards running;
+
+	@media (max-width: 1000px) {
+		display: none;
+	}
+`;
+
+export const UserInfo = styled.div`
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	margin-bottom: 5rem;
+
+	> h3 {
+		font-weight: 400;
+		span {
+			font-weight: 700;
+		}
+	}
+
+	@media (max-width: 1000px) {
+		flex-direction: column;
+	}
 `;

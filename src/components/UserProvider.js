@@ -7,8 +7,8 @@ class UserProvider extends Component {
 		user: null,
 	};
 
-	setUser = user => {
-		this.setState({ user });
+	setUser = async obj => {
+		await this.setState({ user: obj });
 	};
 
 	render() {

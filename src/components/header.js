@@ -8,7 +8,7 @@ import TunesIcon from '../../assets/tunes.svg';
 import ArtistIcon from '../../assets/users.svg';
 import AlbumIcon from '../../assets/disc.svg';
 
-const Header = ({ location }) => {
+const Header = ({ location, user }) => {
   const props = useSpring({
     opacity: 1,
     transform: 'translateX(0px)',
@@ -19,22 +19,22 @@ const Header = ({ location }) => {
   return (
     <HeaderStyles>
       <Nav>
-        <NavLink location={location} to="/overview">
+        <NavLink location={location} to="/overview" user={{ user }}>
           <StarIcon />
 					Overview
 
         </NavLink>
-        <NavLink location={location} to="/songs">
+        <NavLink location={location} to="/songs" user={{ user }}>
           <TunesIcon />
 					Songs
 
         </NavLink>
-        <NavLink location={location} to="/artists">
+        <NavLink location={location} to="/artists" user={{ user }}>
           <ArtistIcon />
 					Artists
 
         </NavLink>
-        <NavLink location={location} to="/albums">
+        <NavLink location={location} to="/albums" user={{ user }}>
           <AlbumIcon />
 					Albums
 
@@ -46,10 +46,12 @@ const Header = ({ location }) => {
 
 Header.propTypes = {
   location: PropTypes.object,
+  user: PropTypes.object,
 };
 
 Header.defaultProps = {
   location: {},
+  user: {},
 };
 
 export default Header;

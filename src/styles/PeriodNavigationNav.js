@@ -8,6 +8,15 @@ export const Navigation = styled.ul`
 	margin-bottom: 5rem;
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
+
+	@media (max-width: 1000px) {
+		flex-direction: column;
+		width: fit-content;
+		> li {
+			margin-bottom: 1rem;
+		}
+	}
 `;
 
 export const NavItem = styled.li`

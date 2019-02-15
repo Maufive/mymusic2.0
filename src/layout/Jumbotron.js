@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { Searchform, JumbotronStyles, Searchbutton } from '../styles/JumbotronStyles';
 import SearchIcon from '../../assets/search.svg';
 import PlayIcon from '../../assets/play-button.svg';
@@ -23,46 +23,21 @@ class Jumbotron extends Component {
 					process.env.GATSBY_API_KEY
 				}&format=json`,
 			)
-			.then(response => this.setState({ user: response.data, search: '' }))
+			.then(response => {
+				const user = response.data.user;
+				this.setState({ search: '', user: response.data.user });
+				navigate('/overview', {
+					state: { user },
+				});
+			})
 			.catch(error => console.log(error));
-	};
-
-	formatDate = unix => {
-		const timestamp = unix;
-		// Months array
-		const months_arr = [
-			'jan',
-			'feb',
-			'mar',
-			'apr',
-			'may',
-			'jun',
-			'jul',
-			'aug',
-			'sep',
-			'oct',
-			'nov',
-			'dec',
-		];
-		const date = new Date(timestamp * 1000);
-		const year = date.getFullYear();
-		const month = months_arr[date.getMonth()];
-		const day = date.getDate();
-		const convdataTime = month + ' ' + day + ' ' + year;
-		return convdataTime;
 	};
 
 	render() {
 		const { user } = this.state;
 		return (
 			<JumbotronStyles>
-				<div
-					style={{
-						display: 'flex',
-						justifyContent: 'space-between',
-						padding: '3rem 0',
-					}}
-				>
+				<div>
 					<div>
 						<Link to="/">
 							<span>
@@ -88,17 +63,6 @@ class Jumbotron extends Component {
 						</Searchbutton>
 					</Searchform>
 				</div>
-				{user && (
-					<div>
-						<h3 style={{ borderBottom: '2px solid #1EB97F' }}>User: {user.user.name}</h3>
-						<h3 style={{ borderBottom: '2px solid #1EB97F' }}>
-							Total playcount: {user.user.playcount}
-						</h3>
-						<h3 style={{ borderBottom: '2px solid #1EB97F' }}>
-							Member since: {this.formatDate(user.user.registered.unixtime)}
-						</h3>
-					</div>
-				)}
 			</JumbotronStyles>
 		);
 	}

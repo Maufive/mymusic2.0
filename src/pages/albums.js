@@ -3,23 +3,23 @@ import PropTypes from 'prop-types';
 import Layout from '../layout/index';
 import UserLayout from '../layout/User';
 import SEO from '../components/seo';
-import Artists from '../components/artists';
+import Albums from '../components/albums';
 
-const ArtistsPage = ({ location }) => (
+const AlbumsPage = ({ location }) => (
   <Layout>
-    <SEO title="Artists" keywords={['artists', ' annat', 'mer keywords']} />
+    <SEO title="Albums" keywords={['albums', ' annat', 'mer keywords']} />
     <UserLayout location={location} user={location.state.user}>
-      <Artists user={location.state.user} />
+      <Albums user={location.state.user} />
     </UserLayout>
   </Layout>
 );
 
-export default ArtistsPage;
+export default AlbumsPage;
 
-ArtistsPage.propTypes = {
+AlbumsPage.propTypes = {
   location: PropTypes.object,
 };
 
-ArtistsPage.defaultProps = {
+AlbumsPage.defaultProps = {
   location: {},
 };

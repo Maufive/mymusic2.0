@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const JumbotronStyles = styled.div`
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 10rem;
+	margin-bottom: 2.5rem;
 	span {
 		display: flex;
 		align-items: center;
@@ -22,11 +22,21 @@ export const JumbotronStyles = styled.div`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		padding: 3rem 0;
+
+		@media (max-width: 1000px) {
+			flex-direction: column;
+			padding: 0;
+		}
 	}
 `;
 
 export const Searchform = styled.form`
 	display: flex;
+	@media (max-width: 1000px) {
+		margin-top: 3rem;
+	}
+
 	> div {
 		position: relative;
 		width: 100%;
